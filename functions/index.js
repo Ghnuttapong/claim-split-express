@@ -1,0 +1,1 @@
+export { default as ReadExcel } from './readExcel';
