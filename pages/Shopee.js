@@ -1,10 +1,10 @@
-import { WriteExcel } from "@/functions";
 import Head from "next/head";
 import UploadPage from "../components/UploadPage";
 import styles from "@/styles/Home.module.css";
 import Link from "next/link";
 
-export default function Home() {
+
+export default function ShopeePage() {
   return (
     <>
       <Head>
@@ -19,12 +19,9 @@ export default function Home() {
           rel="stylesheet"
         />
       </Head>
-      
-          <main className={styles.main}>
-            <h1>สร้างไฟล์เคลมสำหรับขนส่ง Shopee</h1>
-            <UploadPage />
-          </main>
-      
+      <main className={styles.main}>
+        <UploadPage name="Shopee Xpress" />
+      </main>
     </>
   );
 }

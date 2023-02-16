@@ -1,11 +1,10 @@
-import { WriteExcel } from "@/functions";
 import Head from "next/head";
 import UploadPage from "../components/UploadPage";
 import styles from "@/styles/Home.module.css";
 import Link from "next/link";
 
 
-export default function Home() {
+export default function KerryPage() {
   return (
     <>
       <Head>
@@ -21,7 +20,7 @@ export default function Home() {
         />
       </Head>
       <main className={styles.main}>
-        <UploadPage/>
+        <UploadPage name="Kerry" />
       </main>
     </>
   );

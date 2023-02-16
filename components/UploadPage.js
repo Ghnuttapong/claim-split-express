@@ -2,12 +2,12 @@ import { useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { ReadExcel } from "@/functions";
 
-function UploadPage() {
+function UploadPage({ name }) {
   const [files, setFiles] = useState([]);
 
   const onDrop = (acceptedFiles) => {
     setFiles(acceptedFiles);
-    ReadExcel(acceptedFiles, "Shopee Xpress");
+    ReadExcel(acceptedFiles, name);
   };
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({

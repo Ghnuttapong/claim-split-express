@@ -43,7 +43,7 @@ export default function Home() {
         <Image alt="Kerry"  src={KerryJPEG} width={100} height={100} decoding="async" data-nimg={1} loading="lazy" style={{color: 'transparent', borderRadius: 10}} />
         </Link>
         <br/>
-        <Link href="./Shopee.js">
+        <Link href="./Shopee">
         <Image alt="Shopee" src={ShopeeJPEG} width={100} height={100} decoding="async" data-nimg={1} loading="lazy" style={{color: 'transparent', borderRadius: 10}} />
         </Link>
         
