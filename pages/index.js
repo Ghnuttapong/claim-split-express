@@ -1,5 +1,4 @@
 import Head from "next/head";
-import styles from "@/styles/Home.module.css";
 import UploadPage from "../components/UploadPage";
 
 
@@ -18,7 +17,7 @@ export default function Home() {
           rel="stylesheet"
         />
       </Head>
-      <main className={styles.main}>
+      <main>
         <UploadPage />
         
         
