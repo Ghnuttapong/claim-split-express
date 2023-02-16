@@ -1,3 +1,4 @@
+import { WriteExcel } from "@/functions";
 import Head from "next/head";
 import UploadPage from "../components/UploadPage";
 
@@ -18,9 +19,8 @@ export default function Home() {
         />
       </Head>
       <main>
-        <UploadPage />
-        
-        
+        <UploadPage /> 
+        <WriteExcel />
       </main>
     </>
   );
