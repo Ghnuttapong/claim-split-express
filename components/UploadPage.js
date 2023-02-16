@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { ReadExcel } from "@/functions";
 
@@ -52,7 +52,6 @@ function UploadPage() {
             <div className="flex flex-col items-start mb-4" key={file.name}>
               <h3 className="text-gray-700 font-bold">{file.name}</h3>
               <p className="text-gray-500">Size: {file.size} bytes</p>
-              <p className="text-gray-500">Type: {file.type}</p>
             </div>
           ))}
         </div>

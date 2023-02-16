@@ -1,8 +1,4 @@
-import useKerryStore from "@/store/kerryData";
-import useShopeeStore from "@/store/shopeeData";
 import readXlsxFile from "read-excel-file";
-import writeXlsxFile from "write-excel-file";
-import { WriteExcel } from ".";
 
 async function readExcel(file, transportName) {
   try {
@@ -27,54 +23,59 @@ async function readExcel(file, transportName) {
 async function writeKerryXlsxFile(kerryRows) {
   const HEADER_ROW = [
     {
-      value: "Name",
+      value: "ลำดับ",
       fontWeight: "bold",
     },
     {
-      value: "Date of Birth",
+      value: "หมายเลขสั่งซื้อ",
       fontWeight: "bold",
     },
     {
-      value: "Cost",
+      value: "เลขติดตามพัสดุ",
       fontWeight: "bold",
     },
     {
-      value: "Paid",
+      value: "ค่าน้ำหนัก (kg)",
+      fontWeight: "bold",
+    },
+    {
+      value:
+        "ภาพสินค้า (พร้อมกล่องบรรจุและวัสดุกันกระแทก วางบนเครื่องชั่งให้เห็นตัวเลขน้ำหนักชัดเจน)",
       fontWeight: "bold",
     },
   ];
-  const DATA_ROW_1 = [
-    // "Name"
-    {
-      type: String,
-      value: "John Smith",
-    },
 
-    // "Date of Birth"
-    {
-      type: Date,
-      value: new Date(),
-      format: "mm/dd/yyyy",
-    },
+  const DATA_ROW_ARR = [];
 
-    // "Cost"
-    {
-      type: Number,
-      value: 1800,
-    },
+  kerryRows.forEach((item, index) => {
+    DATA_ROW_ARR.push([
+      {
+        type: Number,
+        value: index + 1,
+      },
+      {
+        type: String,
+        value: item[0].toString(),
+      },
+      {
+        type: String,
+        value: item[40].toString(),
+      },
+      {
+        type: String,
+        value: item[43].toString(),
+      },
+      {
+        type: String,
+        value: "",
+      },
+    ]);
+  });
 
-    // "Paid"
-    {
-      type: Boolean,
-      value: true,
-    },
-  ];
-
-  const data = [HEADER_ROW, DATA_ROW_1];
+  const data = [HEADER_ROW, ...DATA_ROW_ARR ];
   await writeXlsxFile(data, {
-  fileName: 'kerryClaim.xlsx'
-})
-
+    fileName: "kerryClaim.xlsx",
+  });
 }
 
 function readTransportExcel(file) {

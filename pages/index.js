@@ -20,7 +20,6 @@ export default function Home() {
       </Head>
       <main>
         <UploadPage /> 
-        <WriteExcel />
       </main>
     </>
   );
