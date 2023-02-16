@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "name": "product",
     "version": "0.1.0",
     "private": true,
@@ -21,3 +22,29 @@
       "zustand": "^4.3.3"
     }
   }
+=======
+  "name": "claim-split-express",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@next/font": "13.1.6",
+    "browserify-fs": "^1.0.0",
+    "exceljs": "^4.3.0",
+    "next": "13.1.6",
+    "react": "18.2.0",
+    "react-dnd": "^16.0.1",
+    "react-dnd-html5-backend": "^16.0.1",
+    "react-dom": "18.2.0",
+    "react-dropzone": "^14.2.3",
+    "read-excel-file": "^5.6.0",
+    "write-excel-file": "^1.4.21",
+    "xlsx-populate": "^1.21.0"
+  }
+}
+>>>>>>> game

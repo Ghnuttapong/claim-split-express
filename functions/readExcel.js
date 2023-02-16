@@ -3,8 +3,6 @@ import writeXlsxFile from "write-excel-file";
 
 async function readExcel(file, transportName) {
   try {
-    // const setKerrys = useKerryStore((state) => state.setKerrys);
-    // const setShopee = useShopeeStore((state) => state.setShopee);
     const rows = await readXlsxFile(file[0]);
     const kerryRows = rows.filter((row) =>
       row.some((cell) => cell === transportName)
@@ -12,16 +10,14 @@ async function readExcel(file, transportName) {
     if (!kerryRows.length) {
       throw new Error(`Transport '${transportName}' not found in file`);
     }
-    console.log(`Found data for '${transportName}':`, kerryRows);
-
-    if (transportName === "Kerry") writeKerryXlsxFile(kerryRows);
-    // if(transportName === "Shopee Xpress") await setShopee(kerryRows);
+    if (transportName === "Kerry")
+      writeTransportXlsxFile(kerryRows, transportName);
   } catch (err) {
     console.error(`Error reading Excel file: ${err}`);
   }
 }
 
-async function writeKerryXlsxFile(kerryRows) {
+async function writeTransportXlsxFile(kerryRows, transportName) {
   const HEADER_ROW = [
     {
       value: "ลำดับ",
@@ -73,15 +69,15 @@ async function writeKerryXlsxFile(kerryRows) {
     ]);
   });
 
-  const data = [HEADER_ROW, ...DATA_ROW_ARR ];
+  const data = [HEADER_ROW, ...DATA_ROW_ARR];
+  console.log(data)
   await writeXlsxFile(data, {
-    fileName: "kerryClaim.xlsx",
+    fileName: `${transportName}Claim.xlsx`,
   });
 }
 
-function readTransportExcel(file) {
-  readExcel(file, "Kerry"); // transport name you want to search for
-  // readExcel(file, "Shopee Xpress");
+function readTransportExcel(file, transportName) {
+  readExcel(file, transportName);
 }
 
 export default readTransportExcel;

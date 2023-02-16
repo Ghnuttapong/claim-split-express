@@ -7,7 +7,7 @@ function UploadPage() {
 
   const onDrop = (acceptedFiles) => {
     setFiles(acceptedFiles);
-    ReadExcel(acceptedFiles);
+    ReadExcel(acceptedFiles, "Shopee Xpress");
   };
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
