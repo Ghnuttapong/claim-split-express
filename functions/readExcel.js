@@ -1,17 +1,19 @@
 import readXlsxFile from "read-excel-file";
 import writeXlsxFile from "write-excel-file";
+import Exists from "./exists";
 
 async function readExcel(file, transportName) {
   try {
     const rows = await readXlsxFile(file[0]);
-    const transportRows = rows.filter((row) =>
-      row[25] == transportName
-    );
+    const transportRows = rows.filter((row) => row[25] == transportName);
     if (!transportRows.length) {
       throw new Error(`Transport '${transportName}' not found in file`);
     }
-    // console.log(transportRows)
-    writeTransportXlsxFile(transportRows, transportName);
+
+    const data = await Exists(transportRows);
+    await writeXlsxFile(data, {
+      fileName: `${transportName}Claim.xlsx`,
+    });
   } catch (err) {
     console.error(`Error reading Excel file: ${err}`);
   }
